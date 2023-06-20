@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 188ffaf54e2c44ec6b9c50babd858874, type: 3}
+  m_Name: tarot cards
+  m_EditorClassIdentifier: 
+  content:
+  - title: The Fool
+    description: innocence, new beginnings, free spirit
+  - title: The Magician
+    description: willpower, desire, creation, manifestation
+  - title: The High Priestess
+    description: intuitive, unconscious, inner voice
+  - title: The Empress
+    description: motherhood, fertility, nature
+  - title: The Emperor
+    description: authority, structure, control, fatherhood
+  - title: The Hierophant
+    description: tradition, conformity, morality, ethics
+  - title: The Lovers
+    description: partnerships, duality, union
+  - title: The Chariot
+    description: direction, control, willpower
+  - title: Justice
+    description: cause and effect, clarity, truth
+  - title: The Hermit
+    description: contemplation, search for truth, inner guidance
+  - title: The Wheel of Fortune
+    description: change, cycles, inevitable fate
+  - title: Strength
+    description: inner strength, bravery, compassion, focus
+  - title: The Hanged Man
+    description: sacrifice, release, martyrdom
+  - title: Death
+    description: end of cycle, beginnings, change, metamorphosis
+  - title: Temperance
+    description: middle path, patience, finding meaning
+  - title: The Devil
+    description: addiction, materialism, playfulness
+  - title: The Tower
+    description: sudden upheaval, broken pride, disaster
+  - title: The Star
+    description: hope, faith, rejuvenation
+  - title: The Moon
+    description: unconscious, illusions, intuition
+  - title: The Sun
+    description: joy, success, celebration, positivity
+  - title: Judgement
+    description: reflection, reckoning, awakening
+  - title: The World
+    description: fulfillment, harmony, completion
