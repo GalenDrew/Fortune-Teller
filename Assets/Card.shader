@@ -8,6 +8,8 @@ Shader "GD/Cards/Card"
 		_CardBack("CardBack", 2D) = "white" {}
 		_SmoothnessMetallic("Smoothness Metallic", 2D) = "white" {}
 		_metallicamount("metallic amount", Float) = 0
+		_ErosionTexture("Erosion Texture", 2D) = "white" {}
+		_ErosionMask("Erosion Mask", Float) = 0
 		[HideInInspector] _texcoord( "", 2D ) = "white" {}
 		[HideInInspector] __dirty( "", Int ) = 1
 	}
@@ -41,6 +43,9 @@ Shader "GD/Cards/Card"
 
 		uniform sampler2D _CardBack;
 		uniform float4 _CardBack_ST;
+		uniform sampler2D _ErosionTexture;
+		uniform float4 _ErosionTexture_ST;
+		uniform float _ErosionMask;
 		uniform sampler2D _SmoothnessMetallic;
 		uniform float4 _SmoothnessMetallic_ST;
 		uniform float _metallicamount;
@@ -58,6 +63,7 @@ Shader "GD/Cards/Card"
 			float2 _MaskCutoffs = float2(0.5,0.75);
 			float temp_output_12_0 = step( break11.x , _MaskCutoffs.x );
 			float lerpResult46 = lerp( tex2DNode5.a , tex2D( _CardBack, appendResult45 ).a , temp_output_12_0);
+			float2 uv_ErosionTexture = i.uv_texcoord * _ErosionTexture_ST.xy + _ErosionTexture_ST.zw;
 			SurfaceOutputStandard s37 = (SurfaceOutputStandard ) 0;
 			s37.Albedo = tex2DNode5.rgb;
 			float3 ase_worldNormal = i.worldNormal;
@@ -86,7 +92,7 @@ Shader "GD/Cards/Card"
 			#endif//37
 			c.rgb = surfResult37;
 			c.a = 1;
-			clip( lerpResult46 - _Cutoff );
+			clip( ( lerpResult46 * step( tex2D( _ErosionTexture, uv_ErosionTexture ).r , _ErosionMask ) ) - _Cutoff );
 			return c;
 		}
 
@@ -225,6 +231,12 @@ Node;AmplifyShaderEditor.SimpleMultiplyOpNode;57;129.5676,-478.0382;Inherit;Fals
 Node;AmplifyShaderEditor.RangedFloatNode;49;-79.00851,-271.0209;Inherit;False;Property;_metallicamount;metallic amount;8;0;Create;True;0;0;0;False;0;False;0;0.6;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.StandardSurfaceOutputNode;0;1210.375,-70.04344;Float;False;True;-1;2;ASEMaterialInspector;0;0;CustomLighting;GD/Cards/Card;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;Back;0;False;;0;False;;False;0;False;;0;False;;False;0;Custom;0.91;True;True;0;True;TransparentCutout;;Geometry;All;12;all;True;True;True;True;0;False;;False;0;False;;255;False;;255;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;False;2;15;10;25;False;0.5;True;0;0;False;;0;False;;0;0;False;;0;False;;0;False;;0;False;;0;False;0;0,0,0,0;VertexOffset;True;False;Cylindrical;False;True;Relative;0;;1;-1;-1;-1;0;False;0;0;False;;-1;0;False;;0;0;0;False;0.1;False;;0;False;;False;15;0;FLOAT3;0,0,0;False;1;FLOAT3;0,0,0;False;2;FLOAT3;0,0,0;False;3;FLOAT3;0,0,0;False;4;FLOAT;0;False;6;FLOAT3;0,0,0;False;7;FLOAT3;0,0,0;False;8;FLOAT;0;False;9;FLOAT;0;False;10;FLOAT;0;False;13;FLOAT3;0,0,0;False;11;FLOAT3;0,0,0;False;12;FLOAT3;0,0,0;False;14;FLOAT4;0,0,0,0;False;15;FLOAT3;0,0,0;False;0
 Node;AmplifyShaderEditor.LerpOp;46;313.9241,307.1881;Inherit;True;3;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;1;FLOAT;0
+Node;AmplifyShaderEditor.SimpleMultiplyOpNode;58;775.7078,285.0206;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0
+Node;AmplifyShaderEditor.StepOpNode;61;732.5375,543.1843;Inherit;False;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0
+Node;AmplifyShaderEditor.WorldPosInputsNode;60;-51.08247,676.9817;Inherit;False;0;4;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3
+Node;AmplifyShaderEditor.SamplerNode;59;316.9924,603.6512;Inherit;True;Property;_ErosionTexture;Erosion Texture;11;0;Create;True;0;0;0;False;0;False;-1;None;7a051dbda2d7bc447bee412427cd311e;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.SwizzleNode;63;150.2936,721.2545;Inherit;False;FLOAT2;0;2;2;3;1;0;FLOAT3;0,0,0;False;1;FLOAT2;0
+Node;AmplifyShaderEditor.RangedFloatNode;62;509.8061,816.1112;Inherit;False;Property;_ErosionMask;Erosion Mask;12;0;Create;True;0;0;0;False;0;False;0;0.08;0;0;0;1;FLOAT;0
 WireConnection;12;0;11;0
 WireConnection;12;1;8;1
 WireConnection;11;0;6;0
@@ -264,10 +276,15 @@ WireConnection;55;0;22;0
 WireConnection;5;0;4;0
 WireConnection;57;0;47;1
 WireConnection;57;1;49;0
-WireConnection;0;10;46;0
+WireConnection;0;10;58;0
 WireConnection;0;13;37;0
 WireConnection;46;0;5;4
 WireConnection;46;1;41;4
 WireConnection;46;2;12;0
+WireConnection;58;0;46;0
+WireConnection;58;1;61;0
+WireConnection;61;0;59;1
+WireConnection;61;1;62;0
+WireConnection;63;0;60;0
 ASEEND*/
-//CHKSM=5A0BE35333F0ECCEDF5DE120A3A0E7AAB044F099
+//CHKSM=6EB070CF040D8654FD427E2C847696A3B831AB09

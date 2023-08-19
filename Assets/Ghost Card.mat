@@ -90,8 +90,8 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
-    - _Xindex: 3
-    - _Yindex: 2
+    - _Xindex: 4
+    - _Yindex: 0
     - _ZWrite: 1
     - __dirty: 1
     - _curlAmount: 0
