@@ -14,46 +14,116 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   content:
   - title: The Fool
-    description: innocence, new beginnings, free spirit
+    subtitle: innocence, new beginnings, free spirit
+    description: 'The Fool is a card of new beginnings, opportunity and potential.
+      You are at the outset of your journey, about to take your first step into the
+      unknown. '
   - title: The Magician
-    description: willpower, desire, creation, manifestation
+    subtitle: willpower, desire, creation, manifestation
+    description: Now is the perfect time to move forward on an idea that you recently
+      conceived. The seed of potential has sprouted, and you are being called to
+      take action and bring your intention to fruition.
   - title: The High Priestess
-    description: intuitive, unconscious, inner voice
+    subtitle: intuitive, unconscious, inner voice
+    description: The High Priestess signifies spiritual enlightenment, inner illumination,
+      divine knowledge and wisdom. Now is the time to be still so you can tune in
+      to your intuition.
   - title: The Empress
-    description: motherhood, fertility, nature
+    subtitle: motherhood, fertility, nature
+    description: "The Empress signifies abundance. You are surrounded by life\u2019s
+      pleasures and luxuries and have everything you need to live a comfortable lifestyle."
   - title: The Emperor
-    description: authority, structure, control, fatherhood
+    subtitle: authority, structure, control, fatherhood
+    description: The Emperor represents a powerful leader who demands respect and
+      authority. You have a clear vision of what you want to create, and you organize
+      those around you to manifest your goal.
   - title: The Hierophant
-    description: tradition, conformity, morality, ethics
+    subtitle: tradition, conformity, morality, ethics
+    description: Before you can discover your own belief systems and make your own
+      choices, The Hierophant encourages you to learn the fundamental principles
+      from a trusted source.
   - title: The Lovers
-    description: partnerships, duality, union
+    subtitle: partnerships, duality, union
+    description: The Lovers is a card of open communication and raw honesty. It signifies
+      that by communicating openly and honestly with those you care about, you will
+      create fulfilling relationships.
   - title: The Chariot
-    description: direction, control, willpower
+    subtitle: direction, control, willpower
+    description: "Now isn\u2019t the time to be passive in the hope that things will
+      work out in your favor. Take focused action and stick to the course, no matter
+      what challenges may come your way."
   - title: Justice
-    description: cause and effect, clarity, truth
+    subtitle: cause and effect, clarity, truth
+    description: 'You are being called to account for your actions and will be judged
+      accordingly. If you have acted in alignment with your Higher Self and for the
+      greater good of others, you have nothing to worry about.
+
+'
   - title: The Hermit
-    description: contemplation, search for truth, inner guidance
+    subtitle: contemplation, search for truth, inner guidance
+    description: The Hermit invites you to retreat into your private world and experience
+      a deep sense of seclusion and introspection. When you tune in to your inner
+      guiding light, you will hear the answers you need.
   - title: The Wheel of Fortune
-    description: change, cycles, inevitable fate
+    subtitle: change, cycles, inevitable fate
+    description: "The Wheel of Fortune reminds you that the wheel is always turning
+      and life is in a state of constant change. If you\u2019re going through a difficult
+      time rest assured that it will get better from here."
   - title: Strength
-    description: inner strength, bravery, compassion, focus
+    subtitle: inner strength, bravery, compassion, focus
+    description: "Strength speaks to the inner strength and the human spirit's ability
+      to overcome any obstacle. Strength is about knowing you can endure life\u2019s
+      obstacles through stamina and persistance."
   - title: The Hanged Man
-    description: sacrifice, release, martyrdom
+    subtitle: sacrifice, release, martyrdom
+    description: "The Hanged Man is your invitation to welcome a break with open
+      arms and surrender to the \u2018what is\u2019 \u2013 even if it is different
+      from what you expected. Take time away from your routine to connect with a
+      new way of thinking and seeing. "
   - title: Death
-    description: end of cycle, beginnings, change, metamorphosis
+    subtitle: end of cycle, beginnings, change, metamorphosis
+    description: Death shows a time of significant transformation, change, and transition.
+      A change should be welcomed as a positive, cleansing, transformational force
+      in your life.
   - title: Temperance
-    description: middle path, patience, finding meaning
+    subtitle: middle path, patience, finding meaning
+    description: Temperance asks you to take the middle path and accommodate new
+      perspectives. Include others and bring together diverse groups of people to
+      create harmony and cooperation.
   - title: The Devil
-    description: addiction, materialism, playfulness
+    subtitle: addiction, materialism, playfulness
+    description: The Devil card represents your shadow and the negative forces that
+      constrain you and hold you back from being the best version of yourself. It
+      appears when you have been tricked into thinking you have no control over your
+      shadow.
   - title: The Tower
-    description: sudden upheaval, broken pride, disaster
+    subtitle: sudden upheaval, broken pride, disaster
+    description: "When The Tower card appears in a Tarot reading, expect the unexpected
+      \u2013 massive change, upheaval, destruction and chaos. When the dust settles,
+      you will grow stronger, wiser and more resilient."
   - title: The Star
-    description: hope, faith, rejuvenation
+    subtitle: hope, faith, rejuvenation
+    description: 'You are entering a peaceful, loving phase in your life, filled
+      with calm energy, mental stability and more in-depth understanding of both
+      yourself and others around you. '
   - title: The Moon
-    description: unconscious, illusions, intuition
+    subtitle: unconscious, illusions, intuition
+    description: The Moon can indicate a time of uncertainty and illusion, when nothing
+      is what it seems. You need to listen to and trust your intuition so you can
+      see beyond what is in front of you.
   - title: The Sun
-    description: joy, success, celebration, positivity
+    subtitle: joy, success, celebration, positivity
+    description: "If you are going through a difficult time, The Sun brings you the
+      message you have been waiting for: that things are on the mend. Through the
+      challenges along your path, you discovered who you are and why you\u2019re
+      here."
   - title: Judgement
-    description: reflection, reckoning, awakening
+    subtitle: reflection, reckoning, awakening
+    description: The Judgement card is calling you to rise up and embrace a higher
+      level of consciousness for the service of your Highest Good. Let go of your
+      old self and step into this newest version of who you really are.
   - title: The World
-    description: fulfillment, harmony, completion
+    subtitle: fulfillment, harmony, completion
+    description: The World card invites you to reflect on your journey, honor your
+      achievements, and tune into your life lessons. Celebrate your successes and
+      bask in the joy of having brought your goals to fruition.

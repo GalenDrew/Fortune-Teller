@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using NaughtyAttributes;
 
+
 public class cardSpawner : MonoBehaviour
 {
     public Animator Anim;
@@ -16,6 +17,11 @@ public class cardSpawner : MonoBehaviour
     public TMP_Text text;
     public enum cardStates { preDraw, drawing, drawn };
     public cardStates currentCardState;
+    bool timeoutTimerActive;
+    [ReadOnly]
+    public float timeOutTimer = 0;
+    
+    public float timeoutCount = 600;
 
     public Vector2Int cardIndex;
     string story;
@@ -33,8 +39,8 @@ public class cardSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
-        if (Input.GetKeyDown(KeyCode.Space))
+        
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Fire1"))
         {
             if (currentCardState == cardStates.preDraw)
             {
@@ -48,7 +54,30 @@ public class cardSpawner : MonoBehaviour
             //Anim.SetTrigger("Reset");
             
         }
-       
+        if (currentCardState == cardStates.drawn)
+        {
+            
+            timeoutTimerActive = true;
+            if (timeoutTimerActive)
+            {
+                if (timeOutTimer < timeoutCount)
+                {
+                    timeOutTimer += 0.1f;
+                }
+                else
+                {
+                  
+                    ResetCard();
+                }
+
+            }
+            else
+            {
+                
+                ResetCard();
+            }
+        }
+
     }
     [Button("set card")]
     public void debugSetCard()
@@ -92,7 +121,8 @@ public class cardSpawner : MonoBehaviour
     public void showText()
     {
         text.enabled = true;
-        string newText = textContent.content[pickedCard].title + "  \n  "+  "9" + textContent.content[pickedCard].description;
+        string newText = " <uppercase> <b>" + textContent.content[pickedCard].title + "  \n  " + "<size= 15>" + textContent.content[pickedCard].subtitle;
+            /*"</uppercase> </b> <typeSpeed = 1.5 > <alpha=#66>" + textContent.content[pickedCard].description;*/
 
         curentTypeout =  StartCoroutine(typeOut(newText));
     }
@@ -104,7 +134,9 @@ public class cardSpawner : MonoBehaviour
         StopCoroutine(curentTypeout);
         text.text = "";
         text.enabled = false;
-       
+        timeOutTimer = 0;
+        timeoutTimerActive = false;
+        playCardFlipSFX();
     }
 
     public void finishedAnim()
@@ -114,21 +146,83 @@ public class cardSpawner : MonoBehaviour
 
     IEnumerator typeOut(string newText)
     {
-       
+        bool doPrint = true;
+        
         text.text = "";
 
+        float typeSpeedMult = 1;
+        string loggedWord = "";
+
+        bool soundAlt = false;
         foreach (char c in newText)
         {
-            if (char.IsNumber(c))
+            bool printNext = false;
+            
+
+            if(c == "<".ToCharArray()[0])
             {
-                text.text += "<size=-8>";
-            }
-            else
-            {
-                text.text += c;
+                doPrint = false;
             }
             
-            yield return new WaitForSeconds(waitBetweenLetters);
+            if (!doPrint)
+            {
+
+               loggedWord += c;
+                if (loggedWord.Contains("<typeSpeed =") && loggedWord.Contains(">"))
+                {
+
+                    float typeMult = 1;
+                    bool hasNum = false;
+                    string splitString = loggedWord.Split(char.Parse(" "))[2];
+                    
+                    hasNum = float.TryParse(splitString, out typeMult);
+                    print(splitString + typeMult);
+                    if (hasNum)
+                    {
+                        typeSpeedMult = typeMult;
+                        loggedWord = "";
+                    }
+                }
+               
+
+            }
+            if (c == ">".ToCharArray()[0])
+            {
+                printNext = true;
+            }
+                
+            if (doPrint )
+            {
+                text.text += c;
+                soundAlt = !soundAlt;
+                if (soundAlt && c.ToString() != " ")
+                {
+                    audioManager.Instance.playTypeOut();
+                }
+                
+
+             
+                
+
+            }
+            if (printNext)
+            {
+                text.text += loggedWord;
+                loggedWord = "";
+                doPrint = true;
+            }
+
+
+
+            if (doPrint)
+            {
+                yield return new WaitForSeconds(waitBetweenLetters/typeSpeedMult);
+            }
         }
+    }
+    public void playCardFlipSFX()
+    {
+        
+        audioManager.Instance.playCardFlip();
     }
 }

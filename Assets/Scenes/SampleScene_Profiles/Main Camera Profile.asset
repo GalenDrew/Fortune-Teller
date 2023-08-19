@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40b924e2dad56384a8df2a1e111bb675, type: 3}
   m_Name: Vignette
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   enabled:
     overrideState: 1
     value: 1
@@ -72,6 +72,22 @@ MonoBehaviour:
   kernelSize:
     overrideState: 1
     value: 1
+--- !u!114 &-23493110677021842
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f99da6e6b71c34a6ab6a66db86b42d62, type: 3}
+  m_Name: GDScreenMirrorPPSSettings
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -90,6 +106,30 @@ MonoBehaviour:
   - {fileID: 4620571391789365122}
   - {fileID: 3416303742809162274}
   - {fileID: -8636230155038521577}
+  - {fileID: -23493110677021842}
+  - {fileID: 872346815951507649}
+--- !u!114 &872346815951507649
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b94fcd11afffcb142908bfcb1e261fba, type: 3}
+  m_Name: MotionBlur
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  shutterAngle:
+    overrideState: 1
+    value: 360
+  sampleCount:
+    overrideState: 1
+    value: 25
 --- !u!114 &3416303742809162274
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1425,19 +1465,19 @@ MonoBehaviour:
     value: 1.12
   softKnee:
     overrideState: 1
-    value: 0.797
+    value: 0.832
   clamp:
     overrideState: 1
     value: 65472
   diffusion:
     overrideState: 1
-    value: 8.46
+    value: 7.78
   anamorphicRatio:
     overrideState: 1
-    value: 0
+    value: -1
   color:
     overrideState: 1
-    value: {r: 0.7743131, g: 0.8301887, b: 0.7322891, a: 1}
+    value: {r: 0.5534751, g: 0.48340157, b: 0.6698113, a: 1}
   fastMode:
     overrideState: 1
     value: 0
@@ -1460,7 +1500,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1cb7e9e120078f43bce4f0b1be547a7, type: 3}
   m_Name: AmbientOcclusion
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   enabled:
     overrideState: 1
     value: 1
@@ -1493,7 +1533,7 @@ MonoBehaviour:
     value: 0
   radius:
     overrideState: 1
-    value: 47.4
+    value: 59.79
   quality:
     overrideState: 1
-    value: 2
+    value: 4
